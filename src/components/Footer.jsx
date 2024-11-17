@@ -8,7 +8,7 @@ const Footer = () => {
         <p>
           Created by{" "}
           <a
-            href="https://github.com/your-username"
+            href="https://github.com/Elgargati"
             className="text-indigo-400 hover:underline"
           >
             Mohammed El Gargati
