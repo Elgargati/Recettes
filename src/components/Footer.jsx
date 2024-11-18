@@ -11,7 +11,7 @@ const Footer = () => {
             href="https://github.com/Elgargati"
             className="text-indigo-400 hover:underline"
           >
-            Mohammed El Gargati
+            Mohammed El gargati
           </a>
         </p>
       </div>

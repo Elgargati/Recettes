@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RecipeCard from "./components/RecipeCard";
 import Footer from "./components/Footer";
 
@@ -10,6 +10,26 @@ const App = () => {
   const APP_ID = "73b47488";
   const APP_KEY = "cb99a2710fc5f1b98e146db967903b12";
 
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch(
+          `https://api.edamam.com/search?q=cake&app_id=73b47488&app_key=cb99a2710fc5f1b98e146db967903b12`
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setRecipes(data.hits.map((hit) => hit.recipe));
+      } catch (error) {
+        console.error("Failed to fetch recipes:", error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
   const fetchRecipes = async () => {
     try {
       const response = await fetch(
